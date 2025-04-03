@@ -1,4 +1,4 @@
-name: Deploy postgresql api
+name: Deploy mysql api
 
 on:
   push:
@@ -15,13 +15,13 @@ jobs:
       - run: echo 'hello world ..'
       - run: ls -la
       - run: touch .env
-      - run: echo 'DEV_DATABASE_URL=${{secrets.PG_CONN}}'  >> .env
+      - run: echo 'DEV_DATABASE_URL=${{secrets.MYSQL_CONN}}'  >> .env
       - run: cat .env
  #     - run: npm install
  #     - run: npm install -g sequelize-cli@6.2.0 
 
  #     - run: sequelize db:migrate
-      - run: docker build -t adsoft/pg-restapi:${{github.sha}} .
+      - run: docker build -t adsoft/mysql-restapi:${{github.sha}} .
       - run: docker images
  #     - run: docker run --name api -p 8080:8080 -d adsoft/pg-restapi:${{github.sha}} 
  #     - run: docker ps
