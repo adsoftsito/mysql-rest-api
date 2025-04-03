@@ -23,11 +23,11 @@ jobs:
       - run: sequelize db:migrate
       - run: docker build -t adsoft/mysql-restapi:${{github.sha}} .
       - run: docker images
- #     - run: docker run --name api -p 8080:8080 -d adsoft/pg-restapi:${{github.sha}} 
- #     - run: docker ps
- #     - run: docker exec api ls -la
+      - run: docker run --name api -p 8080:8080 -d adsoft/mysql-restapi:${{github.sha}} 
+      - run: docker ps
+      - run: docker exec api ls -la
 
-#      - run: curl localhost:8080
+      - run: curl localhost:8080
    
       - name: docker login
         env:
