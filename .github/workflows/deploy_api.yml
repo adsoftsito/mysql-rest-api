@@ -27,7 +27,7 @@ jobs:
       - run: docker ps
       - run: docker exec api ls -la
 
-      - run: curl localhost:8080
+      - run: curl localhost:8080/api/users
    
       - name: docker login
         env:
